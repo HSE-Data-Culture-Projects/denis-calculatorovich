@@ -11,34 +11,46 @@
         <h1>Калькулятор оценок</h1>
         <form id="gradeForm">
             <div class="row">
-                <label for="ne_cg">НЭ ЦГ:</label>
-                <input type="number" id="ne_cg" name="ne_cg" required min="0" max="10" step="0.1">
-                
-                <label for="ne_prog">НЭ по проге:</label>
-                <input type="number" id="ne_prog" name="ne_prog" required min="0" max="10" step="0.1">
-                
-                <label for="ne_ad">НЭ по АД:</label>
-                <input type="number" id="ne_ad" name="ne_ad" required min="0" max="10" step="0.1">
+                <div class="input-group">
+                    <label for="ne_cg">НЭ ЦГ:</label>
+                    <input type="number" id="ne_cg" name="ne_cg" min="0" max="10" step="0.1" required>
+                </div>
+                <div class="input-group">
+                    <label for="ne_prog">НЭ по проге:</label>
+                    <input type="number" id="ne_prog" name="ne_prog" min="0" max="10" step="0.1" required>
+                </div>
+                <div class="input-group">
+                    <label for="ne_ad">НЭ по АД:</label>
+                    <input type="number" id="ne_ad" name="ne_ad" min="0" max="10" step="0.1" required>
+                </div>
             </div>
             <div class="row">
-                <label for="dpr_cg">ДПР ЦГ:</label>
-                <input type="number" id="dpr_cg" name="dpr_cg" required min="0" max="10" step="0.1">
-                
-                <label for="dpr_prog">ДПР прога:</label>
-                <input type="number" id="dpr_prog" name="dpr_prog" required min="0" max="10" step="0.1">
-                
-                <label for="dpr_ad">ДПР АД:</label>
-                <input type="number" id="dpr_ad" name="dpr_ad" required min="0" max="10" step="0.1">
+                <div class="input-group">
+                    <label for="dpr_cg">ДПР ЦГ:</label>
+                    <input type="number" id="dpr_cg" name="dpr_cg" min="0" max="10" step="0.1" required>
+                </div>
+                <div class="input-group">
+                    <label for="dpr_prog">ДПР прога:</label>
+                    <input type="number" id="dpr_prog" name="dpr_prog" min="0" max="10" step="0.1" required>
+                </div>
+                <div class="input-group">
+                    <label for="dpr_ad">ДПР АД:</label>
+                    <input type="number" id="dpr_ad" name="dpr_ad" min="0" max="10" step="0.1" required>
+                </div>
             </div>
             <div class="row">
-                <label for="inn_input">Иннополис Входная оценка:</label>
-                <input type="number" id="inn_input" name="inn_input" required min="0" max="10" step="0.1">
-                
-                <label for="inn_midterm">Иннополис Промежуточная оценка:</label>
-                <input type="number" id="inn_midterm" name="inn_midterm" required min="0" max="10" step="0.1">
-                
-                <label for="inn_final">Иннополис Итоговая оценка:</label>
-                <input type="number" id="inn_final" name="inn_final" required min="0" max="10" step="0.1">
+                <div class="input-group">
+                    <label for="inn_input">Иннополис Входная оценка:</label>
+                    <input type="number" id="inn_input" name="inn_input" min="0" max="10" step="0.1" required>
+                </div>
+                <div class="input-group">
+                    <label for="inn_midterm">Иннополис Промежуточная оценка:</label>
+                    <input type="number" id="inn_midterm" name="inn_midterm" min="0" max="10" step="0.1" required>
+                </div>
+                <div class="input-group">
+                    <label for="inn_final">Иннополис Итоговая оценка:</label>
+                    <input type="number" id="inn_final" name="inn_final" min="0" max="10" step="0.1" required>
+                </div>
             </div>
             <input type="submit" value="Рассчитать">
         </form>
@@ -68,6 +80,6 @@
             </table>
         </div>
     </div>
-    <script src="script.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>
