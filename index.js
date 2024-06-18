@@ -29,13 +29,13 @@ document.getElementById('gradeForm').addEventListener('submit', function (event)
                 return mark_to_update;
             } else {
                 if (stage == 1) {
-                    return ~~Math.max(inn_first, ne_mark, dpr_mark > 8 && ne_mark <= 8 ? 8 : dpr_mark);
+                    return Math.max(~~inn_first, ne_mark, dpr_mark > 8 && ne_mark <= 8 ? 8 : dpr_mark);
                 }
                 if (stage == 2) {
-                    return ~~Math.max(inn_second, ne_mark, dpr_mark > 8 && ne_mark <= 8 ? 8 : dpr_mark);
+                    return Math.max(~~inn_second, ne_mark, dpr_mark > 8 && ne_mark <= 8 ? 8 : dpr_mark);
                 }
                 if (stage == 3) {
-                    return ~~Math.max(inn_third, ne_mark, dpr_mark > 8 && ne_mark <= 8 ? 8 : dpr_mark);
+                    return Math.max(~~inn_third, ne_mark, dpr_mark > 8 && ne_mark <= 8 ? 8 : dpr_mark);
                 }
                 throw Error('Этапа всего три');
             }
