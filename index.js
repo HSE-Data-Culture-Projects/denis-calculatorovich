@@ -13,11 +13,38 @@ document.getElementById('gradeForm').addEventListener('submit', function (event)
     const inn_midterm = parseFloat(document.getElementById('inn_midterm').value);
     const inn_final = parseFloat(document.getElementById('inn_final').value);
 
+    function validateRow(row) {
+        const inputs = row.querySelectorAll('input[type="number"]');
+        let allEmpty = true;
+        let allFilled = true;
+        inputs.forEach(input => {
+            if (input.value === '') {
+                allFilled = false;
+            } else {
+                allEmpty = false;
+            }
+        });
+        return allEmpty || allFilled;
+    }
+
+    const rows = document.querySelectorAll('.row');
+    let valid = true;
+    rows.forEach(row => {
+        if (!validateRow(row)) {
+            valid = false;
+        }
+    });
+
+    if (!valid) {
+        alert('Если вы начали заполнять блок с оценками, необходимо заполнить все три его поля.');
+        return;
+    }
+
     function calculateFinalGrade(inn_first, inn_second, inn_third, ne_mark, dpr_mark, mark_to_update, stage) {
         if (isNaN(mark_to_update)) {
             return 0;
         }
-        
+
         if (isNaN(dpr_mark)) {
             dpr_mark = 0;
         }
