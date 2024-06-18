@@ -1,54 +1,64 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Калькулятор оценок</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div class="container">
         <h1>Калькулятор оценок</h1>
+        <p>Обозначения:</p>
+        <p>НЭ - независимый экзамен (по одной из цифровых компетенций)</p>
+        <p>ДПР - дисциплина-прериквизит</p>
+        <p>ТИ - тестирование университа Иннополиc:<br>1 - входное (на 1 курсе), <br>2 - промежуточное (на 2 курсе),
+            <br>3 - итоговое (на 3 курсе)</p>
         <form id="gradeForm">
+            <h3>Оценки по цифровой грамотности (ЦГ)</h3>
             <div class="row">
                 <div class="input-group">
-                    <label for="ne_cg">НЭ ЦГ:</label>
+                    <label for="ne_cg">НЭ ЦГ</label>
                     <input type="number" id="ne_cg" name="ne_cg" min="0" max="10" step="0.1" required>
                 </div>
                 <div class="input-group">
-                    <label for="ne_prog">НЭ по проге:</label>
+                    <label for="dpr_cg">ДПР ЦГ</label>
+                    <input type="number" id="dpr_cg" name="dpr_cg" min="0" max="10" step="0.1">
+                </div>
+                <div class="input-group">
+                    <label for="inn_input">Входное ТИ</label>
+                    <input type="number" id="inn_input" name="inn_input" min="0" max="10" step="0.1" required>
+                </div>
+            </div>
+            <h3>Оценки по программированию (П)</h3>
+            <div class="row">
+                <div class="input-group">
+                    <label for="ne_prog">НЭ по проге</label>
                     <input type="number" id="ne_prog" name="ne_prog" min="0" max="10" step="0.1" required>
                 </div>
                 <div class="input-group">
-                    <label for="ne_ad">НЭ по АД:</label>
-                    <input type="number" id="ne_ad" name="ne_ad" min="0" max="10" step="0.1" required>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-group">
-                    <label for="dpr_cg">ДПР ЦГ:</label>
-                    <input type="number" id="dpr_cg" name="dpr_cg" min="0" max="10" step="0.1" required>
+                    <label for="dpr_prog">ДПР прога</label>
+                    <input type="number" id="dpr_prog" name="dpr_prog" min="0" max="10" step="0.1">
                 </div>
                 <div class="input-group">
-                    <label for="dpr_prog">ДПР прога:</label>
-                    <input type="number" id="dpr_prog" name="dpr_prog" min="0" max="10" step="0.1" required>
-                </div>
-                <div class="input-group">
-                    <label for="dpr_ad">ДПР АД:</label>
-                    <input type="number" id="dpr_ad" name="dpr_ad" min="0" max="10" step="0.1" required>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-group">
-                    <label for="inn_input">Иннополис Входная оценка:</label>
-                    <input type="number" id="inn_input" name="inn_input" min="0" max="10" step="0.1" required>
-                </div>
-                <div class="input-group">
-                    <label for="inn_midterm">Иннополис Промежуточная оценка:</label>
+                    <label for="inn_midterm">Промежуточное ТИ</label>
                     <input type="number" id="inn_midterm" name="inn_midterm" min="0" max="10" step="0.1" required>
                 </div>
+            </div>
+            <h3>Оценки по анализу данных (АД)</h3>
+            <div class="row">
                 <div class="input-group">
-                    <label for="inn_final">Иннополис Итоговая оценка:</label>
+                    <label for="ne_ad">НЭ по АД</label>
+                    <input type="number" id="ne_ad" name="ne_ad" min="0" max="10" step="0.1" required>
+                </div>
+                <div class="input-group">
+                    <label for="dpr_ad">ДПР АД</label>
+                    <input type="number" id="dpr_ad" name="dpr_ad" min="0" max="10" step="0.1">
+                </div>
+                <div class="input-group">
+                    <label for="inn_final">Итоговое ТИ</label>
                     <input type="number" id="inn_final" name="inn_final" min="0" max="10" step="0.1" required>
                 </div>
             </div>
@@ -60,26 +70,33 @@
                 <thead>
                     <tr>
                         <th>НЭ ЦГ</th>
-                        <th>НЭ по проге</th>
-                        <th>НЭ по АД</th>
-                        <th>ДПР ЦГ</th>
-                        <th>ДПР прога</th>
-                        <th>ДПР АД</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
                         <td id="result_ne_cg"></td>
-                        <td id="result_ne_prog"></td>
-                        <td id="result_ne_ad"></td>
+                    </tr>
+                    <tr>
+                        <th>ДПР ЦГ</th>
                         <td id="result_dpr_cg"></td>
+                    </tr>
+                    <tr>
+                        <th>НЭ по проге</th>
+                        <td id="result_ne_prog"></td>
+                    </tr>
+                    <tr>
+                        <th>ДПР прога</th>
                         <td id="result_dpr_prog"></td>
+                    </tr>
+                    <tr>
+                        <th>НЭ по АД</th>
+                        <td id="result_ne_ad"></td>
+                    </tr>
+                    <tr>
+                        <th>ДПР АД</th>
                         <td id="result_dpr_ad"></td>
                     </tr>
-                </tbody>
+                </thead>
             </table>
         </div>
     </div>
     <script src="index.js"></script>
 </body>
+
 </html>
