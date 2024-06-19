@@ -40,6 +40,18 @@ document.getElementById('gradeForm').addEventListener('submit', function (event)
         return;
     }
 
+    // Проверка значений полей dpr_ad, dpr_prog и dpr_cg
+    function checkDprValue(value) {
+        if (!isNaN(value) && value > 8) {
+            alert("В случае, если за дисциплину-прериквизит выставлена оценка выше 8 баллов, для целей зачета используется оценка 8");
+            return;
+        }
+    }
+
+    checkDprValue(dpr_cg);
+    checkDprValue(dpr_prog);
+    checkDprValue(dpr_ad);
+
     function calculateFinalGrade(inn_first, inn_second, inn_third, ne_mark, dpr_mark, mark_to_update, stage) {
         if (isNaN(mark_to_update)) {
             return 0;
@@ -69,13 +81,13 @@ document.getElementById('gradeForm').addEventListener('submit', function (event)
         }
     }
 
-    const final_ne_cg = calculateFinalGrade(inn_input, inn_midterm, inn_final, ne_cg, dpr_cg, ne_cg, 1);
-    const final_ne_prog = calculateFinalGrade(inn_input, inn_midterm, inn_final, ne_prog, dpr_prog, ne_prog, 2);
-    const final_ne_ad = calculateFinalGrade(inn_input, inn_midterm, inn_final, ne_ad, dpr_ad, ne_ad, 3);
+    const final_ne_cg = calculateFinalGrade(inn_input, inn_midterm, inn_final, ne_cg, Math.min(dpr_cg, 8), ne_cg, 1);
+    const final_ne_prog = calculateFinalGrade(inn_input, inn_midterm, inn_final, ne_prog, Math.min(dpr_prog), ne_prog, 2);
+    const final_ne_ad = calculateFinalGrade(inn_input, inn_midterm, inn_final, ne_ad, Math.min(dpr_ad), ne_ad, 3);
 
-    const final_dpr_cg = calculateFinalGrade(inn_input, inn_midterm, inn_final, ne_cg, dpr_cg, dpr_cg, 1);
-    const final_dpr_prog = calculateFinalGrade(inn_input, inn_midterm, inn_final, ne_prog, dpr_prog, dpr_prog, 2);
-    const final_dpr_ad = calculateFinalGrade(inn_input, inn_midterm, inn_final, ne_ad, dpr_ad, dpr_ad, 3);
+    const final_dpr_cg = calculateFinalGrade(inn_input, inn_midterm, inn_final, ne_cg, Math.min(dpr_cg, 8), Math.min(dpr_cg, 8), 1);
+    const final_dpr_prog = calculateFinalGrade(inn_input, inn_midterm, inn_final, ne_prog, Math.min(dpr_prog), Math.min(dpr_prog), 2);
+    const final_dpr_ad = calculateFinalGrade(inn_input, inn_midterm, inn_final, ne_ad, Math.min(dpr_ad), Math.min(dpr_ad), 3);
 
     document.getElementById('result_ne_cg').innerText = final_ne_cg.toFixed(2);
     document.getElementById('result_ne_prog').innerText = final_ne_prog.toFixed(2);
