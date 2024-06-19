@@ -52,7 +52,7 @@ document.getElementById('gradeForm').addEventListener('submit', function (event)
         if (inn_first - inn_second > 1 || inn_second - inn_third > 1 || inn_first - inn_third > 1) {
             return mark_to_update;
         } else {
-            if (mark_to_update < 4) {
+            if (ne_mark < 4) {
                 return mark_to_update;
             } else {
                 if (stage == 1) {
